@@ -27,6 +27,6 @@ const validateUrlModel = (url) => {
   return Joi.validate(url, schema)
 }
 
-export default urlSchema
-export default urlState
-export default validateUrlModel
+export { urlSchema as Schema }
+export { urlState as Model }
+export { validateUrlModel as Validate }

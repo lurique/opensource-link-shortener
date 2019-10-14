@@ -10,8 +10,8 @@
 const DatabaseConnection = async(mongoose, username, pass, host, port, db) => {
   let url = `mongodb://${username}:${pass}@${host}:${port}/${db}`
 
-  await mongoose.connect(url, { useNewUrlParser: true })
-    .then(() => console.log(`DATABASE: Connected on ${url} \r\n----------------------------------------------------------------`))
+  await mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true })
+    .then(() => console.log(`DATABASE: Connected on ${url} \r\n----------------------------------------------------------------\r\n`))
     .catch(err => console.log(`DATABASE: Error -> ${err}`))
 }
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>URL Shortener</title>
+</head>
+<body>
+  <script>
+    var url = window.location.href.split('/');
+    var hash = url[url.length - 1];
+
+    if ( hash ) {
+      var data = null;
+  
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+  
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          let res = JSON.parse(this.responseText);
+          
+          if ( res.status === 400 || res.status === 404 ) {
+            return window.location.href = "http://localhost:3030"
+          }
+
+          window.location.href = res.data;
+        }
+      });
+  
+      xhr.open("GET", "http://localhost:3030/api/v1/urls/search?hash="+hash);
+  
+      xhr.send(data);
+    }
+  </script>
+</body>
+</html>

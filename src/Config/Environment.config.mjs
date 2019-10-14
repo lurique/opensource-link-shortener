@@ -1,6 +1,7 @@
 const EnvironmentVariables = {
   APP_PORT: process.env.APP_PORT || "3030",
   APP_HOST: process.env.APP_HOST || "127.0.0.1",
+  APP_URL: process.env.APP_URL || "http://localhost",
   DB_USERNAME: process.env.DB_USERNAME || "root",
   DB_PASSWORD: process.env.DB_PASSWORD || "root",
   DB_HOST: process.env.DB_HOST || "127.0.0.1",
