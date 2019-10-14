@@ -1,0 +1,5 @@
+node_modules/
+.VS*
+.vs*
+.DS_*
+.env
